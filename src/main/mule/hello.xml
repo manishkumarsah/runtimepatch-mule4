@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:scripting="http://www.mulesoft.org/schema/mule/scripting"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/scripting http://www.mulesoft.org/schema/mule/scripting/current/mule-scripting.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="c1fbfeca-5fb9-4710-bee9-dbb0d9009d2a" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<http:request-config name="HTTP_Request_configuration" doc:name="HTTP Request configuration" doc:id="78d42daa-3b51-4ce8-8cff-ce2efd674c82" doc:description="asdklafdklas" />
+	<flow name="helloFlow" doc:id="3b5f6ec4-46ae-4840-b525-5a0389e51608" >
+		<http:listener doc:name="Listener" doc:id="c609fd4e-8fad-4518-9c20-c89660b24cb6" config-ref="HTTP_Listener_config" path="/test"/>
+		<set-payload value='#["hello"]' doc:name="Set Payload" doc:id="62d96c0a-2a3d-434f-8035-23f312e8086f" />
+		<logger level="INFO" doc:name="Logger" doc:id="6dda4d84-d760-4d8a-bb2e-6a6158a465b7" message=""/>
+	</flow>
+</mule>
